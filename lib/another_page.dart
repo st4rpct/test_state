@@ -1,18 +1,17 @@
-import 'package:belajarprovider/another_page.dart';
 import 'package:belajarprovider/provider_counter.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class ProviderManagement extends StatelessWidget {
-  ProviderManagement({super.key});
+class AnotherPage extends StatelessWidget {
+  AnotherPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (context) => ProviderCounter(),
-      builder: (context, child) => Scaffold(
+      child: Scaffold(
         appBar: AppBar(
-          title: Text("Provider Management"),
+          title: Text("Another Page"),
         ),
         body: Center(
           child: Column(
@@ -29,22 +28,9 @@ class ProviderManagement extends StatelessWidget {
                     style: Theme.of(context).textTheme.headlineMedium,
                   );
                 },
-              ),
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => AnotherPage()));
-                  },
-                  child: Text("Another Page")),
+              )
             ],
           ),
-        ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            context.read<ProviderCounter>().increment();
-          },
-          tooltip: 'Increment',
-          child: const Icon(Icons.add),
         ),
       ),
     );
